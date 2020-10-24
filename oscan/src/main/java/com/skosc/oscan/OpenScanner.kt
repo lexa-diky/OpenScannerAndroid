@@ -6,7 +6,8 @@ import java.util.concurrent.Executor
 
 class OpenScanner<T> internal constructor(
     val executor: Executor,
-    val scanner: ImageScanner<T>
+    val scanner: ImageScanner<T>,
+    val filter: Filter<T>
 ) {
 
     val fragment: Fragment get() = OpenScannerFragment.newInstance<T>()
@@ -14,6 +15,7 @@ class OpenScanner<T> internal constructor(
     fun builder(): OpenScannerBuilder<T> = OpenScannerBuilder<T>()
         .executor(executor)
         .scanner(scanner)
+        .filter(filter)
 
     interface Owner <T> {
 

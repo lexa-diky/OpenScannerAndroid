@@ -7,6 +7,7 @@ class OpenScannerBuilder<T> {
 
     var executor: Executor? = null
     var scanner: ImageScanner<T>? = null
+    var filter: Filter<T>? = null
 
     fun executor(executor: Executor): OpenScannerBuilder<T> {
         this.executor = executor
@@ -15,6 +16,11 @@ class OpenScannerBuilder<T> {
 
     fun scanner(scanner: ImageScanner<T>): OpenScannerBuilder<T> {
         this.scanner = scanner
+        return this
+    }
+
+    fun filter(filter: Filter<T>): OpenScannerBuilder<T> {
+        this.filter = filter
         return this
     }
 

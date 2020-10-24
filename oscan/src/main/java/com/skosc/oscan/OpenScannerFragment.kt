@@ -11,7 +11,6 @@ import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.osan_fragment.*
-import java.util.concurrent.Executor
 
 @Suppress("UNCHECKED_CAST")
 class OpenScannerFragment<T> private constructor() : Fragment(), OpenScanner.Owner<T> {
@@ -42,6 +41,7 @@ class OpenScannerFragment<T> private constructor() : Fragment(), OpenScanner.Own
         val osca = OpenScannerCameraXAnalyzer(
             openScanner.executor,
             openScanner.scanner,
+            openScanner.filter,
             subOwner::onScanResult
         )
 
