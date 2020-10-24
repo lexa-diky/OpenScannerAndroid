@@ -26,6 +26,7 @@ class OpenScannerBuilder<T> {
 
     fun build(): OpenScanner<T> = OpenScanner(
         executor = this.executor ?: Executors.newSingleThreadExecutor(),
-        scanner = this.scanner ?: error("Scanner is required to build OpenScanner")
+        scanner = this.scanner ?: error("Scanner is required to build OpenScanner"),
+        filter = this.filter ?: Filter { true }
     )
 }
